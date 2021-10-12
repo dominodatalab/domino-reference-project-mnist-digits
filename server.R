@@ -116,7 +116,7 @@ server <- function(input, output, session) {
       source_python('pred_for_r.py')
       get_list('out.png')
       
-    url <- "https://vip.domino.tech:443/models/5dbc6d32c9e77c0007cdf8a7/latest/model"
+    url <- "https://field.cs.domino.tech:443/models/615f87188c407a6a92e80c3b/latest/model"
     response <- POST(
         url,
         authenticate("kkepcszUkQUnloiLqo0HMVyLDgR8E0YgcywxZVFFfapEOf0okltfgBpWuaKeQfKN", 
