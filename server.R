@@ -116,14 +116,13 @@ server <- function(input, output, session) {
       source_python('pred_for_r.py')
       get_list('out.png')
       
-    url <- "https://field.cs.domino.tech:443/models/615f87188c407a6a92e80c3b/latest/model"
-    response <- POST(
-        url, authenticate("Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", 
-                    "Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", 
-                    type = "basic") type = "basic"),
+      url <- "https://field.cs.domino.tech:443/models/615f87188c407a6a92e80c3b/latest/model"
+      response <- POST(
+        url,
+        authenticate("Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", "Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", type = "basic"),
         body=toJSON(list(data=list(input_list = get_list('out.png'))), auto_unbox = TRUE),
         content_type("application/json")
-        )
+      )
       
       pred0 <- paste(content(response)$result[[1]][[1]], round(content(response)$result[[1]][[2]],4), sep=': ')
       pred1 <- paste(content(response)$result[[2]][[1]], round(content(response)$result[[2]][[2]],4), sep=': ')
