@@ -118,8 +118,7 @@ server <- function(input, output, session) {
       
     url <- "https://field.cs.domino.tech:443/models/615f87188c407a6a92e80c3b/latest/model"
     response <- POST(
-        url,
-       authenticate("Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", 
+        url, authenticate("Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", 
                     "Z6evvfglAaJYMq514SDnYptvRwKQPY5w2qP96awlXP2Am2WcN9xy56obhArNMHCG", 
                     type = "basic") type = "basic"),
         body=toJSON(list(data=list(input_list = get_list('out.png'))), auto_unbox = TRUE),
